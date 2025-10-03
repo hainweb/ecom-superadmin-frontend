@@ -7,6 +7,7 @@ import {
   Calendar,
   FileText,
   Building,
+  MapPin,
 } from "lucide-react";
 import axios from "axios";
 import { BASE_URL } from "../../api/api";
@@ -112,88 +113,94 @@ const ManageRequests = () => {
           </div>
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {merchants.map((merchant) => (
-              <div
-                key={merchant._id}
-                className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200"
-              >
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                        {merchant.Name || "N/A"}
-                      </h3>
-                      {merchant.BusinessName && (
-                        <p className="text-sm text-gray-600 flex items-center gap-1">
-                          <Building className="w-4 h-4" />
-                          {merchant.BusinessName}
-                        </p>
-                      )}
-                    </div>
-                    <div className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-1 rounded">
-                      Pending
-                    </div>
-                  </div>
+           {merchants.map((merchant) => (
+  <div
+    key={merchant._id}
+    className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200"
+  >
+    <div className="p-6">
+      <div className="flex items-start justify-between mb-4">
+        <div className="flex-1">
+          <h3 className="text-xl font-semibold text-gray-900 mb-1">
+            {merchant.Name || "N/A"}
+          </h3>
+          {merchant.BusinessName && (
+            <p className="text-sm text-gray-600 flex items-center gap-1">
+              <Building className="w-4 h-4" />
+              {merchant.BusinessName}
+            </p>
+          )}
+        </div>
+        <div className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-1 rounded">
+          Pending
+        </div>
+      </div>
 
-                  <div className="space-y-3 mb-6">
-                    {merchant.Email && (
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Mail className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                        <span className="truncate">{merchant.Email}</span>
-                      </div>
-                    )}
+      <div className="space-y-3 mb-6">
+        {merchant.Email && (
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Mail className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            <span className="truncate">{merchant.Email}</span>
+          </div>
+        )}
 
-                    {merchant.Mobile && (
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Phone className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                        <span>{merchant.Mobile}</span>
-                      </div>
-                    )}
+        {merchant.Mobile && (
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Phone className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            <span>{merchant.Mobile}</span>
+          </div>
+        )}
 
-                    {merchant.BusinessType && (
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Store className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                        <span>{merchant.BusinessType}</span>
-                      </div>
-                    )}
+        {merchant.BusinessType && (
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Store className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            <span>{merchant.BusinessType}</span>
+          </div>
+        )}
 
-                    {merchant.GSTNumber && (
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <FileText className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                        <span className="truncate">
-                          GST: {merchant.GSTNumber}
-                        </span>
-                      </div>
-                    )}
+        {merchant.GSTNumber && (
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <FileText className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            <span className="truncate">GST: {merchant.GSTNumber}</span>
+          </div>
+        )}
 
-                    {merchant.createdDate && (
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Calendar className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                        <span>Applied: {formatDate(merchant.createdDate)}</span>
-                      </div>
-                    )}
-                  </div>
+        {merchant.BusinessAddress && (
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            <span className="truncate">{merchant.BusinessAddress}</span>
+          </div>
+        )}
 
-                  <button
-                    onClick={() => handleApproveClick(merchant)}
-                    disabled={processingId === merchant._id}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {processingId === merchant._id ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                        Processing...
-                      </>
-                    ) : (
-                      <>
-                        <CheckCircle className="w-5 h-5" />
-                        Approve Merchant
-                      </>
-                    )}
-                  </button>
-                </div>
-              </div>
-            ))}
+        {merchant.createdAt && (
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Calendar className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            <span>Applied: {formatDate(merchant.createdAt)}</span>
+          </div>
+        )}
+      </div>
+
+      <button
+        onClick={() => handleApproveClick(merchant)}
+        disabled={processingId === merchant._id}
+        className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {processingId === merchant._id ? (
+          <>
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+            Processing...
+          </>
+        ) : (
+          <>
+            <CheckCircle className="w-5 h-5" />
+            Approve Merchant
+          </>
+        )}
+      </button>
+    </div>
+  </div>
+))}
+
           </div>
         )}
       </div>
