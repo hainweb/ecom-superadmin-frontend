@@ -20,6 +20,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import Settings from "./pages/settings/Settings";
 import AllCoupons from "./pages/coupons/AllCoupons";
+import ManageRequests from "./pages/admin/ManageRequests";
 
 function App() {
   return (
@@ -152,6 +153,7 @@ function App() {
 
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/merchant-requests" element={<ManageRequests />} />
         </Routes>
       </Router>
     </div>
