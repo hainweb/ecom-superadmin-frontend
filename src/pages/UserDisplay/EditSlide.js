@@ -37,9 +37,11 @@ export function Slider() {
   }, []); // Only runs on mount
 
   const handleDeleteSlide = (slideId) => {
+    console.log('slider is',slideId);
+    
     setDeleteLoading(true)
     axios
-      .delete(`${BASE_URL}/delete-slider/${slideId}`, { withCredentials: true })
+      .post(`${BASE_URL}/delete-slider/${slideId}`, { withCredentials: true })
       .then((response) => {
         setSlides((prevSlides) => prevSlides.filter((slide) => slide.id !== slideId));
         setDeleteLoading(false)
@@ -76,6 +78,8 @@ export function Slider() {
           headers: { "Content-Type": "multipart/form-data" },
         })
         .then((response) => {
+         console.log('added res',response);
+         
           setSlides(response.data.slides); // Add the new slide to the list
           setNewSlide({ image: null, linkTo: "" });
           setPreviewImage(null);
@@ -124,7 +128,7 @@ export function Slider() {
                       </svg>
                       :
                       <button
-                        onClick={() => handleDeleteSlide(slide.id)}
+                        onClick={() => handleDeleteSlide(slide._id)}
                         className="bg-red-500 text-white px-4 py-2 rounded-md"
                       >
                         Delete

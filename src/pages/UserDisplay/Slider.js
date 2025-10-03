@@ -95,7 +95,7 @@ function Slider() {
     setIsDeleting(true);
     setDeletingId(id);
     try {
-      const response = await axios.post(
+      const response = await axios.delete(
         `${BASE_URL}/delete-slider/${id}`,
         {},
         { withCredentials: true }
