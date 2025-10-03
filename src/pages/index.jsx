@@ -1,5 +1,5 @@
 import React from "react";
-import { UserPlus, Truck, Gift } from "lucide-react";
+import { UserPlus, Truck, Gift, UserCog } from "lucide-react";
 import { Link } from "react-router-dom";
 
 function Index() {
@@ -55,10 +55,22 @@ function Index() {
                 View Coupons
               </h2>
             </div>
-            <p className="text-gray-600">
-              View the whole Coupons
-            </p>
+            <p className="text-gray-600">View the whole Coupons</p>
             <Link to="/all-coupons">
+              <button className="mt-4 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg">
+                View
+              </button>
+            </Link>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+            <div className="flex items-center space-x-4 mb-4">
+              <UserCog className="text-yellow-600" size={32} />
+              <h2 className="text-xl font-semibold text-gray-800">
+                Manage Merchant request
+              </h2>
+            </div>
+            <p className="text-gray-600">View the Merchant request</p>
+            <Link to="/merchant-requests">
               <button className="mt-4 bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg">
                 View
               </button>
