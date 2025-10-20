@@ -95,15 +95,30 @@ const SuperAdminHeader = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <nav className="flex flex-col px-4 py-2 space-y-2 text-gray-700 font-medium">
-            <a href="/dashboard" className="hover:text-blue-600">
+              <Link to="/dashboard" className="hover:text-blue-600">
               Dashboard
-            </a>
-            <a href="/users" className="hover:text-blue-600">
-              Users
-            </a>
-            <a href="/settings" className="hover:text-blue-600">
+            </Link>
+            <Link to="/products" className="hover:text-blue-600">
+              Products
+            </Link>
+            <Link to="/all-users" className="hover:text-blue-600">
+              All Users
+            </Link>
+            <Link to="/all-admins" className="hover:text-blue-600">
+              All Amdins
+            </Link>
+            <Link to="/all-deliveries" className="hover:text-blue-600">
+              All Deliveries
+            </Link>
+            <Link to="/edit-user-display" className="hover:text-blue-600">
+              Edit User Display
+            </Link>
+            <Link to="/total-orders" className="hover:text-blue-600">
+              Order History
+            </Link>
+            <Link to="/settings" className="hover:text-blue-600">
               Settings
-            </a>
+            </Link>
             <div className="flex items-center space-x-2 mt-2">
               <img
                 src="https://i.pravatar.cc/300"
