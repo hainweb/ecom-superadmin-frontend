@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# Super Admin Frontend | Multi-Role E-Commerce Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This module is the **Super Admin Dashboard Frontend** for managing all aspects of the Multi-Role E-Commerce Platform.  
+It is built using **React.js** and **TailwindCSS** to provide a responsive and modern interface.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### Authentication & Security
+- Super Admin login
+- OTP-based password reset flow
+- Secure access to all dashboard features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### User & Role Management
+- View all users
+- View all admins and delivery personnel
+- Create new admin and delivery personnel
+- Block/unblock/delete admins and delivery personnel
+- Approve merchant accounts
+- View pending merchant signup requests
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Product & Category Management
+- View all products
+- Block/unblock products
+- Manage product categories
+- Add/delete categories dynamically
 
-### `npm test`
+### Order Management
+- View all user orders
+- View products in each order
+- Track total orders
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Analytics & Dashboard
+- Real-time total revenue
+- Revenue trends over time
+- User activity statistics
+- Product category analytics
 
-### `npm run build`
+### Coupons Management
+- View all coupons
+- Delete coupons
+- Create new coupons with auto-apply logic
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Sliders, Categories & User UI Elements
+- View homepage sliders and categories
+- Add sliders and categories with image upload
+- Delete sliders and categories
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### UI/UX
+- Fully responsive dashboard
+- Intuitive navigation for managing multiple roles and platform data
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **React.js** (functional components with hooks)
+- **TailwindCSS** for responsive styling
+- **Axios** for API requests
+- **React Router DOM** for routing
+- **Recharts** for analytics dashboards
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Environment Variables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a `.env` file in the **root directory** of the project with the following variables:
 
-## Learn More
+```env
+# Base URL of your backend API
+# Use full URL in development (e.g., localhost), and '/api' in production
+# Example for development:
+REACT_APP_API_URL=http://localhost:9000
+# Example for production:
+# REACT_APP_BASE_URL=/api
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Setup Instructions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+# Clone the repository
+git clone https://github.com/hainweb/ecom-superadmin-frontend.git
 
-### Analyzing the Bundle Size
+# Navigate to project directory
+cd ecom-superadmin-frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Install dependencies
+npm install
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Start the development server
+npm start
